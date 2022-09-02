@@ -42,7 +42,7 @@ async def blablacar(email, client, out):
         'datadome': '',
     }
     try:
-        headers["Authorization"] = 'Bearer ' + appToken
+        headers["Authorization"] = f'Bearer {appToken}'
     except Exception:
         out.append({"name": name,"domain":domain,"method":method,"frequent_rate_limit":frequent_rate_limit,
                     "rateLimit": True,
