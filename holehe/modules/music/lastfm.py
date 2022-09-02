@@ -25,8 +25,9 @@ async def lastfm(email, client, out):
         "Accept": "*/*",
         "Referer": "https://www.last.fm/join",
         "X-Requested-With": "XMLHttpRequest",
-        "Cookie": "csrftoken=" + str(token),
+        "Cookie": f"csrftoken={str(token)}",
     }
+
     try:
 
         check = await client.post("https://www.last.fm/join/partial/validate", headers=headers, data=data)

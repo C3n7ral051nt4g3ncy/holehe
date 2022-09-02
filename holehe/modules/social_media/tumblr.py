@@ -21,7 +21,7 @@ async def tumblr(email, client, out):
         })
         if getBearer.status_code != 200:
             raise Exception("xc")
-        
+
         p = BeautifulSoup(getBearer.text,"html.parser").find_all("script")
         bearer = [";".join(elem.text.split("window['___INITIAL_STATE___'] = ")[-1].split(";")[:-1]).split('{"API_TOKEN":"')[-1].split('","extraHeaders":"{}"}')[0] for elem in p if "window['___INITIAL_STATE___']" in elem.text][0]
         bearer = f"Bearer {bearer}"
